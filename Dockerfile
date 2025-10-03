@@ -8,10 +8,12 @@ ARG LAZYDOCKER_VERSION=v0.24.1
 # Install dependencies
 RUN apk add --no-cache \
     tzdata \
-    ttyd 
+    ttyd && \
+    rm -rf /var/cache/apk/*
 
 # Install lazydocker
-RUN go install github.com/jesseduffield/lazydocker@${LAZYDOCKER_VERSION}
+RUN go install github.com/jesseduffield/lazydocker@${LAZYDOCKER_VERSION} && \
+    rm -rf /root/.cache /go/pkg/mod
 
 # Expose ttyd port
 EXPOSE 7682
