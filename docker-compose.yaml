@@ -1,0 +1,19 @@
+version: '3'
+services:
+  lazydocker-webui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lazydocker-webui
+    ports:
+      - "7682:7682"
+    environment:
+      - TZ=Europe/Copenhagen
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - lazydocker-config:/.config/jesseduffield/lazydocker
+    restart: unless-stopped
+
+volumes:
+  lazydocker-config:
+    driver: local

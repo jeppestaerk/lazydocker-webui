@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "UTC",
+  "schedule": [
+    "before 4am on Monday"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "automerge": true,
+  "platformAutomerge": true,
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "ARG BASE_VERSION=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "golang",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "ARG LAZYDOCKER_VERSION=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "jesseduffield/lazydocker",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["golang"],
+      "groupName": "Go Alpine"
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["jesseduffield/lazydocker"],
+      "groupName": "Lazydocker"
+    }
+  ]
+}
