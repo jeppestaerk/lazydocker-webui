@@ -152,6 +152,10 @@ GitHub Actions automatically builds and publishes multi-architecture images to G
 
 ## License
 
-This project is a containerized wrapper. See the upstream projects for their licenses:
-- [lazydocker](https://github.com/jesseduffield/lazydocker)
-- [ttyd](https://github.com/tsl0922/ttyd)
+This project is licensed under the [MIT License](LICENSE).
+
+### Upstream Projects
+
+This is a containerized wrapper for the following projects:
+- [lazydocker](https://github.com/jesseduffield/lazydocker) - MIT License
+- [ttyd](https://github.com/tsl0922/ttyd) - MIT License
