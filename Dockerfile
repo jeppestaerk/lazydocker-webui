@@ -3,7 +3,7 @@ ARG BASE_VERSION=1.25.5-alpine3.22
 
 FROM ${BASE_IMAGE}:${BASE_VERSION}
 
-ARG LAZYDOCKER_VERSION=v0.24.2
+ARG LAZYDOCKER_VERSION=v0.24.3
 
 # Install dependencies
 RUN apk add --no-cache \
